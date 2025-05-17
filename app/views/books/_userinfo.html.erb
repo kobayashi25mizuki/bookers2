@@ -1,0 +1,24 @@
+<h1>User info</h1>
+
+<% if user.profile_image.attached? %>
+  <%= image_tag user.profile_image %>
+<% else %>
+  <%= image_tag 'no_image' %>
+<% end %>
+
+<table>
+  <tr>
+    <th>name</th>
+    <td><strong><%= user.name %></strong></td>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <td><strong><%= user.introduction %></strong></td>
+  </tr>
+</table>
+
+<span>
+  <% if profile_user == current_user %>
+    <%= link_to "edit", edit_user_path(current_user.id) %>
+  <% end %>
+</span>

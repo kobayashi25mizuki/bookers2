@@ -1,0 +1,49 @@
+<% flash.each do |message_type, message| %>
+  <div><%= message %></div>
+<% end %>
+
+<%= render 'userinfo', user: @user, profile_user: @profile_user %>
+<%= render 'newbook', book: @books %>
+
+<h2>Book</h2>
+
+<table>
+  <tr>
+    <td>
+      <%= link_to user_path(@book.user_id) do %>
+        <%= image_tag @book.get_image %>
+        <br>
+        <%= @book.user.name %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= link_to @book.title, book_path(@book) %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= @book.body %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <% if @book.user == current_user %>
+        <%= link_to "Edit", edit_book_path(@book) %>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <% if @book.user == current_user %>
+        <%= link_to "Destoroy", book_path(@book), method: :delete %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+

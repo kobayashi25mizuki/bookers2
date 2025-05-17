@@ -1,0 +1,27 @@
+<% flash.each do |message_type, message| %>
+  <div><%= message %></div>
+<% end %>
+
+<%= render 'userinfo', user: @user, profile_user: @profile_user %>
+<%= render 'newbook', book: @book %>
+
+<% @books.each do |book| %>
+  <table>
+    <tr>
+      <td>
+      <%= link_to user_path(book.user_id) do %>
+        <%= image_tag book.user.get_profile_image(100,100) %>
+      <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <th>Title</th>
+      <td><strong><%= link_to book.title, book_path(book) %></strong></td>
+    </tr>
+    <tr>
+      <th>Opinion</th>
+      <td><strong><%= book.body %></strong></td>
+    </tr>
+  </table>
+<% end %>
