@@ -2,26 +2,40 @@
   <div><%= message %></div>
 <% end %>
 
-<%= render 'userinfo', user: @user, profile_user: @profile_user %>
-<%= render 'newbook', book: @book %>
+<div class="container">
+  <div class="row">
+    <!-- 左カラム -->
+    <div class="col-md-3">
+      <%= render 'userinfo', user: @user, profile_user: @profile_user %>
+      <%= render 'newbook', book: @book %>
+    </div>
 
-<% @books.each do |book| %>
-  <table>
-    <tr>
-      <td>
-      <%= link_to user_path(book.user_id) do %>
-        <%= image_tag book.user.get_profile_image(100,100) %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <% @books.each do |book| %>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>
+              <%= link_to user_path(book.user_id) do %>
+                <%= image_tag book.user.get_profile_image(100,100) %>
+              <% end %>
+              </td>
+              <td><strong><%= link_to book.title, book_path(book) %></strong></td>
+              <td><strong><%= book.body %></strong></td>
+            </tr>
+          </tbody>
+        </table>
       <% end %>
-      </td>
-    </tr>
-
-    <tr>
-      <th>Title</th>
-      <td><strong><%= link_to book.title, book_path(book) %></strong></td>
-    </tr>
-    <tr>
-      <th>Opinion</th>
-      <td><strong><%= book.body %></strong></td>
-    </tr>
-  </table>
-<% end %>
+    </div>
+  </div>
+</div>

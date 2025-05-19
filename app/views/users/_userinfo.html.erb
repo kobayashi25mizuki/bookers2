@@ -1,4 +1,4 @@
-<h1>User info</h1>
+<h2>User info</h2>
 
 <% if user.profile_image.attached? %>
   <%= image_tag user.profile_image %>
@@ -6,14 +6,14 @@
   <%= image_tag 'no_image' %>
 <% end %>
 
-<table>
+<table class="table">
   <tr>
     <th>name</th>
-    <td><strong><%= user.name %></strong></td>
+    <th><%= user.name %></th>
   </tr>
   <tr>
     <th>introduction</th>
-    <td><strong><%= user.introduction %></strong></td>
+    <th><%= user.introduction %></th>
   </tr>
 </table>
 
