@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/31a1452b9f.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -21,15 +21,19 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                <ul class="navbar-nav ml-auto">
                   <li class="nav-link text-light">
+                    <i class="fa-solid fa-house"></i>
                     <%= link_to "Home", user_path(current_user.id) %>
                   </li>
                   <li class="nav-link text-light">
+                    <i class="fa-solid fa-users"></i>
                     <%= link_to "Users", users_path %>
                   </li>
                   <li class="nav-link text-light">
+                    <i class="fa-solid fa-book-open"></i>
                     <%= link_to "Books", books_path %>
                   </li>
                   <li class="nav-link text-light">
+                    <i class="fa-solid fa-sign-out-alt"></i>
                     <%= link_to "Log out", destroy_user_session_path, method: :delete %>
                   </li>
                 </ul>
@@ -37,21 +41,25 @@
             <% else %>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                  <ul class="navbar-nav ml-auto">
-                  <li class="nav-link text-light">
-                    <%= link_to "Home", root_path %>
-                  </li>
-                  <li class="nav-link text-light">
-                    <%= link_to "About", about_path %>
-                  </li>
-                  <li class="nav-link text-light">
-                    <%= link_to "Sign up", new_user_registration_path %>
-                  </li>
-                  <li class="nav-link text-light">
-                    <%= link_to "Log in", new_user_session_path %>
-                  </li>
+                    <li class="nav-link text-light">
+                      <i class="fa-solid fa-house"></i>
+                      <%= link_to "Home", root_path %>
+                    </li>
+                    <li class="nav-link text-light">
+                      <i class="fa-solid fa-link"></i>
+                      <%= link_to "About", about_path %>
+                    </li>
+                    <li class="nav-link text-light">
+                      <i class="fa-solid fa-user-plus"></i>
+                      <%= link_to "Sign up", new_user_registration_path %>
+                    </li>
+                    <li class="nav-link text-light">
+                      <i class="fa-solid fa-sign-in-alt"></i>
+                      <%= link_to "Log in", new_user_session_path %>
+                    </li>
+                  </ul>
+               </div>
             <% end %>
-                </ul>
-              </div>
           </div>
         </nav>
       </header>

@@ -2,10 +2,10 @@
   <div><%= message %></div>
 <% end %>
 
-<%= render 'userinfo', user: @user, profile_user: @profile_user %>
+<%= render 'userinfo', user: @book.user, profile_user: @book.user %>
 <%= render 'newbook', book: @books %>
 
-<h2>Book</h2>
+<h2>Book detail</h2>
 
 <table>
   <tr>
@@ -41,7 +41,7 @@
   <tr>
     <td>
       <% if @book.user == current_user %>
-        <%= link_to "Destoroy", book_path(@book), method: :delete %>
+        <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
       <% end %>
     </td>
   </tr>

@@ -20,5 +20,7 @@
 <span>
   <% if profile_user == current_user %>
     <%= link_to "edit", edit_user_path(current_user.id) %>
+  <% else %>
+    <%= link_to "edit", user_path(current_user.id) %>
   <% end %>
 </span>
