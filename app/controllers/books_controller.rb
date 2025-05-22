@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   before_action :is_matching_book_user, only: [:edit, :update]
 
+
   def new
     @book = Book.new
   end
@@ -63,5 +64,7 @@ class BooksController < ApplicationController
       redirect_to books_path
     end
   end
+
+
 
 end

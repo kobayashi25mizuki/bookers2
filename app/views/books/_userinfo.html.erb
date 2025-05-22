@@ -1,4 +1,4 @@
-<h1>User info</h1>
+<h2>User info</h2>
 
 <% if user.profile_image.attached? %>
   <%= image_tag user.profile_image %>
@@ -6,7 +6,7 @@
   <%= image_tag 'no_image' %>
 <% end %>
 
-<table>
+<table class="table">
   <tr>
     <th>name</th>
     <td><strong><%= user.name %></strong></td>
@@ -17,10 +17,6 @@
   </tr>
 </table>
 
-<span>
-  <% if profile_user.id == current_user.id %>
-    <%= link_to "edit", edit_user_path(current_user.id) %>
-  <% else %>
-    <%= link_to "edit", user_path(current_user.id) %>
-  <% end %>
-</span>
+<%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary btn-block " do %>
+  <i class="fas fa-user-cog"></i>
+<% end %>

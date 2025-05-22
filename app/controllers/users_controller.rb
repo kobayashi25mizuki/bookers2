@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @users = User.find(current_user.id)
     @book = Book.new
     @books = @user.books
-    @profile_user = User.find(params[:id])
   end
 
   def index
