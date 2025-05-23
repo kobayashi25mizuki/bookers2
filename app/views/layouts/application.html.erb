@@ -15,26 +15,26 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container">
             <li class="navbar-brand">
-              <%= link_to "Bookers", root_path %>
+              <%= link_to "Bookers", root_path, class: "text-light" %>
             </li>
             <% if user_signed_in? %>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                <ul class="navbar-nav ml-auto">
                   <li class="nav-link text-light">
                     <i class="fa-solid fa-house"></i>
-                    <%= link_to "Home", user_path(current_user.id) %>
+                    <%= link_to "Home", user_path(current_user.id), class: "text-light" %>
                   </li>
                   <li class="nav-link text-light">
                     <i class="fa-solid fa-users"></i>
-                    <%= link_to "Users", users_path %>
+                    <%= link_to "Users", users_path, class: "text-light" %>
                   </li>
                   <li class="nav-link text-light">
                     <i class="fa-solid fa-book-open"></i>
-                    <%= link_to "Books", books_path %>
+                    <%= link_to "Books", books_path, class: "text-light" %>
                   </li>
                   <li class="nav-link text-light">
                     <i class="fa-solid fa-sign-out-alt"></i>
-                    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-light" %>
                   </li>
                 </ul>
               </div>
@@ -43,19 +43,19 @@
                  <ul class="navbar-nav ml-auto">
                     <li class="nav-link text-light">
                       <i class="fa-solid fa-house"></i>
-                      <%= link_to "Home", root_path %>
+                      <%= link_to "Home", root_path, class: "text-light" %>
                     </li>
                     <li class="nav-link text-light">
                       <i class="fa-solid fa-link"></i>
-                      <%= link_to "About", about_path %>
+                      <%= link_to "About", about_path, class: "text-light" %>
                     </li>
                     <li class="nav-link text-light">
                       <i class="fa-solid fa-user-plus"></i>
-                      <%= link_to "Sign up", new_user_registration_path %>
+                      <%= link_to "Sign up", new_user_registration_path, class: "text-light" %>
                     </li>
                     <li class="nav-link text-light">
                       <i class="fa-solid fa-sign-in-alt"></i>
-                      <%= link_to "Log in", new_user_session_path %>
+                      <%= link_to "Log in", new_user_session_path, class: "text-light" %>
                     </li>
                   </ul>
                </div>
@@ -63,7 +63,8 @@
           </div>
         </nav>
       </header>
-      <%= yield %>
+    <%= yield %>
+  </body>
 
       <footer>
         <div class="container mt-5">
